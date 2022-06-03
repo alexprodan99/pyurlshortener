@@ -1,0 +1,35 @@
+{% extends 'base.html' %} 
+
+{% block body %}
+
+<div>
+      <h1>URL Shortner Application</h1>
+      <form action="" method="POST">
+        {% csrf_token %}
+        <div>
+          <div>{{form.long_url}}</div>
+          <div>
+            <button type="submit">
+              Shorten
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  {% if errors %}
+  <div>
+    <p>{{errors}}</p>
+  </div>
+  {% endif %}
+
+  {% if new_url %}
+  <div>
+
+    <p>You can copy the Link below and share it with your friends</p>
+    <p>{{new_url}}</p>
+    <p>Previous URL: {{long_url}}</p>
+  </div>
+  {% endif %}
+</div>
+{% endblock body %}
